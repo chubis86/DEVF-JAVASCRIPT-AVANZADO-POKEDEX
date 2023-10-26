@@ -1,4 +1,4 @@
-const api = "https://pokeapi.co/api/v2/pokemon/?limit=15";
+const api = "https://pokeapi.co/api/v2/pokemon/?limit=1500";
 //const api = "https://pokeapi.co/api/v2/pokemon/";
 //const buscador=document.querySelector('#buscadorBoton');
 const buscador=document.querySelector('#buscadorInput');
