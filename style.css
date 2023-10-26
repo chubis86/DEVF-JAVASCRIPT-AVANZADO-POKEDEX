@@ -67,19 +67,22 @@ main{
 }
 
 .tarjeta{
-    width: 200px;
-    height: 300px;
+    width: 150px;
+    height: 200px;
     border: 3px solid black;
     border-radius: 10px;
     display:flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    cursor:pointer;
 }
 
 .tarjetaTitulo{
+    text-align:center;
+    width: 100%;
     padding:10px;
-    font-size: 1.2em;
+    font-size: 1.1em;
     font-weight: bold;
 }
 
