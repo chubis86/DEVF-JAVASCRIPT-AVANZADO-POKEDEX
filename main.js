@@ -1,4 +1,4 @@
-const api = "https://pokeapi.co/api/v2/pokemon/?limit=1500";
+const api = "https://pokeapi.co/api/v2/pokemon/?limit=15";
 //const api = "https://pokeapi.co/api/v2/pokemon/";
 //const buscador=document.querySelector('#buscadorBoton');
 const buscador=document.querySelector('#buscadorInput');
@@ -28,7 +28,7 @@ async function cargarDatos() {
         let imagen2 = await fetch(imagen);
         let imagen3 = await imagen2.json();
         arreglo[2] = imagen3.sprites.front_default;
-        
+        //console.log(arreglo);
         return arreglo;
         
     });
@@ -40,7 +40,7 @@ async function cargarDatos() {
 
 //Damos un tiempo para cargar la lista completa
 setTimeout(()=>{
-    console.log(pokemones); 
+    //console.log(pokemones); 
     imprimir(pokemones);
     }
     ,5000);
@@ -106,21 +106,26 @@ function darAccionTarjetas(){
             let posicion = tarjeta.getAttribute('data');
             
             document.querySelector('.modal-title').innerHTML = pokemones[posicion-1][1];
-            let apiPokemon='https://pokeapi.co/api/v2/pokemon/' + pokemones[posicion][0];
+            let apiPokemon='https://pokeapi.co/api/v2/pokemon/' + pokemones[posicion-1][0];
             let informacionPokemon = await fetch(apiPokemon);
             let informacionPokemon2 = await informacionPokemon.json();
             let cadena = 
             `<div class='informacionColumnaIzquierda'>
-                <span>HABILIDADES:</span>
+                <span class='subtitulo'>HABILIDADES:</span>
             `;    
                 informacionPokemon2.abilities.forEach(habilidad =>{
-                    cadena+= `<span>${habilidad.ability.name}</span>;`;
+                    cadena+= `${habilidad.ability.name}`;
                 });    
             cadena+=
-            `</div>
+                `
+                <span class='subtitulo'>ALTURA:</span>
+                    ${informacionPokemon2.height}
+                <span class='subtitulo'>PESO:</span>
+                    ${informacionPokemon2.weight}
+            </div>
             <div class='informacionColumnaDerecha'>
-                <img `;
-                cadena+=pokemones[posicion][2]==null ?  `src="/imagenes/error.jpg"` : `src="${pokemones[posicion][2]}" `;
+                <img class='imagenModal' `;
+                cadena+=pokemones[posicion-1][2]==null ?  `src="/imagenes/error.jpg"` : `src="${pokemones[posicion-1][2]}" `;
             
             cadena+=
             `/>    

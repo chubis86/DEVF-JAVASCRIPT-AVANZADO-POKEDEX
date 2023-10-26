@@ -103,3 +103,37 @@ footer{
     font-weight: bold;
 }
 
+.modal-body{
+    display:flex;
+    justify-content: center;
+    height: 250px;
+}
+
+.informacionColumnaIzquierda{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    width: 45%;
+}
+
+.informacionColumnaDerecha{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    width: 45%;
+}
+
+.subtitulo{
+    font-weight: bold;
+    font-size:1.1em;
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+.imagenModal{
+    width: 100%;
+}
